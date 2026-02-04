@@ -1,0 +1,1 @@
+Multi-modal Stance Detection: New Datasets and Model 

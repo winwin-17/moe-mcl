@@ -1,0 +1,190 @@
+train_config:
+
+  in_target_train_config:
+    train_times: 
+      value: 5
+
+    num_epochs: 
+      value: 15
+    batch_size:
+      value: 48
+
+    warmup_ratio:
+      values: [0, 0.3]
+    transformer_learning_rate:
+      values: [5.0e-5, 1.0e-5, 5.0e-6]
+    linear_learning_rate:
+      values: [1.0e-4, 1.0e-3, 1.0e-5]
+    prompt_learning_rate:
+      values: [1.0e-3, 1.0e-4, 1.0e-5]
+    weight_decay:
+      values: [1.0e-4, 1.0e-2, 1.0e-5, 1.0e-3]
+    visual_soft_tokens:
+      values: [7, 5, 10]
+    visual_soft_prompt_dropout:
+      values: [0.2, 0.4, 0]
+    prompt_project:
+      values: [300, -1, 512]
+
+    if_split_hash_tag:
+      values: [True, False]
+    linear_injection:
+#      values: [300, 512, -1]
+      values: [512, -1, 300]
+
+  zero_shot_train_config:
+    train_times: 
+      value: 5
+
+    num_epochs: 
+      value: 15
+    batch_size: 
+      value: 48
+
+    warmup_ratio:
+      values: [0, 0.3]
+    transformer_learning_rate:
+      values: [5.0e-5, 1.0e-5, 5.0e-6]
+    linear_learning_rate:
+      values: [1.0e-4, 1.0e-5, 1.0e-3]
+    prompt_learning_rate:
+      values: [1.0e-3, 1.0e-4, 1.0e-5]
+    weight_decay:
+      values: [1.0e-5, 1.0e-3, 1.0e-4, 1.0e-2]
+    visual_soft_tokens:
+      values: [7, 5, 10]
+    visual_soft_prompt_dropout:
+      values: [0.2, 0.4, 0]
+    prompt_project:
+      values: [300, -1, 512]
+
+    if_split_hash_tag:
+      values: [True, False]
+    linear_injection:
+#      values: [300, 512, -1]
+      values: [512, -1, 300]
+
+
+# <========================Bert Model Config========================>
+model_config:
+  # ----------------------------------------------------------------
+  bert_base:
+    label_size:
+      value: Null
+    max_tokenization_length:
+      value: 512
+    transformer_tokenizer_name:
+      value: /home/xxx/models/bert-base-uncased
+    transformer_name:
+      value: /home/xxx/models/bert-base-uncased
+  # ----------------------------------------------------------------
+  deberta_base:
+    label_size:
+      value: Null
+    max_tokenization_length:
+      value: 512
+    transformer_tokenizer_name:
+      value: /home/xxx/models/deberta-v3-base
+    transformer_name:
+      value: /home/xxx/models/deberta-v3-base
+  # ----------------------------------------------------------------
+  bertweet_base:
+    label_size:
+      value: Null
+    max_tokenization_length:
+      value: 128
+    transformer_tokenizer_name:
+      value: /home/xxx/models/bertweet
+    transformer_name:
+      value: /home/xxx/models/bertweet
+  # ----------------------------------------------------------------
+  resnet:
+    label_size:
+      value: Null
+    transformer_tokenizer_name:
+      value: /home/xxx/visual_models/resnet50
+    transformer_name:
+      value: /home/xxx/visual_models/resnet50
+
+  # ----------------------------------------------------------------
+  vit:
+    label_size:
+      value: Null
+    transformer_tokenizer_name:
+      value: /home/xxx/visual_models/vit-base-patch16-224
+    transformer_name:
+      value: /home/xxx/visual_models/vit-base-patch16-224
+  # ----------------------------------------------------------------
+  bert_vit:
+    label_size:
+      value: Null
+    textual_transformer_tokenizer_name:
+      value: /home/xxx/models/bert-base-uncased
+    textual_transformer_name:
+      value: /home/xxx/models/bert-base-uncased
+    max_tokenization_length:
+      value: 400
+    visual_transformer_tokenizer_name:
+      value: /home/xxx/visual_models/vit-base-patch16-224
+    visual_transformer_name:
+      value: /home/xxx/visual_models/vit-base-patch16-224
+  # ----------------------------------------------------------------
+  deberta_vit:
+    label_size:
+      value: Null
+    textual_transformer_tokenizer_name:
+      value: /home/xxx/models/deberta-v3-base
+    textual_transformer_name:
+      value: /home/xxx/models/deberta-v3-base
+    max_tokenization_length:
+      value: 400
+    visual_transformer_tokenizer_name:
+      value: /home/xxx/visual_models/vit-base-patch16-224
+    visual_transformer_name:
+      value: /home/xxx/visual_models/vit-base-patch16-224
+  # ----------------------------------------------------------------
+  bert_resnet:
+    label_size:
+      value: Null
+    textual_transformer_tokenizer_name:
+      value: /home/xxx/models/bert-base-uncased
+    textual_transformer_name:
+      value: /home/xxx/models/bert-base-uncased
+    max_tokenization_length:
+      value: 256
+    visual_transformer_tokenizer_name:
+      value: /home/xxx/visual_models/resnet50
+    visual_transformer_name:
+      value: /home/xxx/visual_models/resnet50
+  deberta_resnet:
+    label_size:
+      value: Null
+    textual_transformer_tokenizer_name:
+      value: /home/xxx/models/deberta-v3-base
+    textual_transformer_name:
+      value: /home/xxx/models/deberta-v3-base
+    max_tokenization_length:
+      value: 256
+    visual_transformer_tokenizer_name:
+      value: /home/xxx/visual_models/resnet50
+    visual_transformer_name:
+      value: /home/xxx/visual_models/resnet50
+  clip:
+    label_size:
+      value: Null
+    multimodal_model_name:
+      value: /home/xxx/visual_models/clip-vit-base-patch32
+    multimodal_processor_name:
+      value: /home/xxx/visual_models/clip-vit-base-patch32
+    max_tokenization_length:
+      value: 77
+  # ----------------------------------------------------------------
+  vilt:
+    label_size:
+      value: Null
+    multimodal_model_name:
+      value: /home/xxx/visual_models/vilt-b32-mlm
+    multimodal_processor_name:
+      value: /home/xxx/visual_models/vilt-b32-mlm
+    max_tokenization_length:
+      value: 40
